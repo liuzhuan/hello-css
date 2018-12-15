@@ -4,6 +4,8 @@
 
 在学习 less 过程中，[Less-To-CSS Playground](http://lesscss.org/less-preview/) 是一个很棒的在线转译工具。
 
+## 基本特性
+
 Less 是 CSS 的扩展语言。它增加了以下特性：
 
 变量
@@ -213,5 +215,51 @@ width: calc(50% + (@var - 20px)); // => calc(50% + (25vh - 20px))
 ```less
 @import "library";
 @import "typo.css";
+```
+
+## 高级特性
+
+[带参 Mixins](http://lesscss.org/features/#mixins-feature-mixins-parametric-feature)
+
+```less
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+#header {
+    .border-radius(4px);
+}
+
+.button {
+    .border-radius(6px);
+}
+
+// 带参 mixins 还可以有默认参数
+.border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+#header {
+    .border-radius();
+}
+```
+
+现实世界的[例子](https://github.com/Tencent/weui/blob/612a04e1d4a77b105b29318f7f5238c68ece6a5f/src/style/base/mixin/mobile.less#L17-L19)：
+
+```less
+// Tencent/weui/src/style/base/mixin/mobile.less
+.setTapColor(@c:rgba(0,0,0,0)) {
+    -webkit-tap-highlight-color: @c;
+}
+
+// Tecent/weui/src/style/base/reset.less
+a {
+    text-decoration: none;
+    .setTapColor();
+}
 ```
 
