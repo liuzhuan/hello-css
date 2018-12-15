@@ -112,7 +112,7 @@ v3.0.0 之后，为了兼容 CSS，`calc()` 不被转译：
 width: calc(50% + (@var - 20px)); // => calc(50% + (25vh - 20px))
 ```
 
-转译
+禁止转译（*Escaping*）
 
 ```less
 @min768: ~"(min-width: 768px)";
@@ -144,4 +144,74 @@ width: calc(50% + (@var - 20px)); // => calc(50% + (25vh - 20px))
 }
 ```
 
-To Be Continued
+命名空间和存取器
+
+```less
+#bundle() {
+    .button {
+        display: block;
+        border: 1px solid black;
+        background-color: grey;
+        &:hover {
+            background-color: white;
+        }
+    }
+    .tab { ... }
+    .citation { ... }
+}
+
+#header a {
+    color: orange;
+    #bundle.button();
+}
+```
+
+在命名空间后增加 `()`，比如 `#bundle()` ，它就不会在 CSS 中出现。
+
+映射（*Maps*）
+
+在 Less 3.5 中，可以将 mixins 和规则集当作映射的值。
+
+```less
+#colors() {
+    primary: blue;
+    secondary: green;
+}
+
+.button {
+    color: #colors[primary];
+    border: 1px solid #colors[secondary];
+}
+```
+
+作用域
+
+```less
+@var: red;
+
+#page {
+    @var: white;
+    #header {
+        color: @var; // white
+    }
+}
+```
+
+注释
+
+```less
+/* One heck of a block
+ * style comment! */
+@var: red;
+
+// Get in line!
+@var: white;
+```
+
+引入
+
+```less
+@import "library";
+@import "typo.css";
+```
+
