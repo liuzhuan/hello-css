@@ -12,7 +12,7 @@
 | Windows    | 3.1 to ME                          | Microsoft Sans Serif                                         |
 | Android    | Ice Cream Sandwich (4.0)+          | Roboto                                                       |
 | Android    | Cupcake (1.5) to Honeycomb (3.2.6) | Droid Sans                                                   |
-| Ubuntu     | All versions                       | [Ubuntu](https://design.ubuntu.com/font/)                    |
+| Ubuntu     | All versions                       | [Ubuntu](https://design.ubuntu.com/font/)                    |
 | Firefox OS | All versions                       | Fira Sans                                                    |
 | KDE        | *                                  | Oxygen                                                       |
 | GNOME      | *                                  | Cantarell                                                    |
